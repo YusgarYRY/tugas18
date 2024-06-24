@@ -3,7 +3,6 @@ package test;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.json.JSONObject;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -37,9 +36,10 @@ public class tesbatas {
                 .post("https://reqres.in/api/users")
                 .then().extract().response();
     }
-    @AfterTest
-    public void verificationStatusCode201() {
+    @Test(dependsOnMethods = "testPostMinimumName")
+    public void verificationStatusCode201ForMinLenght() {
         response.then()
+                .log().all()
                 .assertThat().statusCode(201);
 
 

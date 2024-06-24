@@ -3,8 +3,6 @@ package test;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.json.JSONObject;
-import org.testng.Assert;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -42,10 +40,12 @@ public class tespositif {
                 .post("https://reqres.in/api/users")
                 .then().extract().response();
     }
-    @AfterTest
+    @Test(dependsOnMethods = "testPositifPostNewUserId")
     public  void verificationStatusCode201(){
 
-        Assert.assertEquals(response.getStatusCode(), 201);
+        response.then()
+                .log().all()
+                .assertThat().statusCode(201);
 
     }
 

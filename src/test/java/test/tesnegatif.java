@@ -1,8 +1,6 @@
 package test;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.testng.Assert;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -18,7 +16,7 @@ public class tesnegatif {
     }
 
     @Test
-    public  void tesNegatifGetUnregisteredUserId(){
+    public  void testNegatifGetUnregisteredUserId(){
 
 
                 response = RestAssured
@@ -28,10 +26,12 @@ public class tesnegatif {
                 .then().extract().response();
 
     }
-    @AfterTest
+    @Test(dependsOnMethods = "testNegatifGetUnregisteredUserId")
     public  void verificationStatusCode(){
 
-        Assert.assertEquals(response.getStatusCode(), 404);
+        response.then()
+                .log().all()
+                .assertThat().statusCode(404);
 
     }
 

@@ -7,7 +7,7 @@ Feature: positif, negatif, and boundary api test on reqres.in
 
   Scenario: Negatif test on reqres.in by get method
     Given prepare url valid for get user id
-    And Hit api get unvalid user id
+    And Hit api get Invalid user id
     Then verification status code should be 404
 
     Scenario: Boundary test on reqres by get method

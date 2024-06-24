@@ -39,9 +39,9 @@ public class testrunner {
         System.out.println("prepare url");
     }
 
-    @And("Hit api get unvalid user id")
-    public void hitApiGetUnvalidUserId() {
-        Tesnegatif.tesNegatifGetUnregisteredUserId();
+    @And("Hit api get Invalid user id")
+    public void hitApiGetInvalidUserId() {
+        Tesnegatif.testNegatifGetUnregisteredUserId();
         System.out.println("hit and get invalid user");
     }
 
@@ -65,7 +65,7 @@ public class testrunner {
 
     @Then("verification status code should be 201 for minimum lenght")
     public void verificationStatusCodeShouldBeForMinimumLength() {
-        Tesbatas.verificationStatusCode201();
+        Tesbatas.verificationStatusCode201ForMinLenght();
         System.out.println("verification 201 for post single character");
     }
 }
