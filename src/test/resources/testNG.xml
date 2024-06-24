@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--parallel untuk menjalankan secara bersamaan memerlukan threas.sleep pada halaman code-->
+<suite name="reqres automation API">
+    <test name="Test Get dan Post">
+        <classes>
+            <class name="test.tes"/>
+            <class name="test.tesnegatif"/>
+            <class name="test.tesbatas"/>
+        </classes>
+    </test>
+</suite>
