@@ -2,9 +2,9 @@
 <suite name="reqres automation API">
     <test name="Negatif test, Positif Test, And Boundary Test">
         <classes>
-            <class name="test.tespositif"/>
-            <class name="test.tesnegatif"/>
-            <class name="test.tesbatas"/>
+            <class name="test.tesPositif"/>
+            <class name="test.tesNegatif"/>
+            <class name="test.tesBatas"/>
         </classes>
     </test>
 </suite>

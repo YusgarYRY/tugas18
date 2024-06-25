@@ -6,26 +6,30 @@ import org.json.JSONObject;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+public class tesPositif {
+
+    public   Response response;
 
 
-public class tesbatas {
-    public Response response;
-
-    @BeforeTest
-    public void prepareUrlForPostMinimumName() {
+    public  void prepareUrlValidForPostNewuserid(){
+        RestAssured.baseURI = "https://reqres.in/";
 
     }
 
-    @Test
-    public void testPostMinimumName() {
-        String name = "a";
+
+
+    public  void testPositifPostNewUserId(){
+
+        String name = "yusgar";
         String email = "yusgar@gmail.com";
         String password = "123456";
 
         JSONObject obj = new JSONObject();
+
         obj.put("name", name);
         obj.put("email", email);
         obj.put("password", password);
+
 
         response = RestAssured
                 .given()
@@ -36,12 +40,15 @@ public class tesbatas {
                 .post("https://reqres.in/api/users")
                 .then().extract().response();
     }
-    @Test(dependsOnMethods = "testPostMinimumName")
-    public void verificationStatusCode201ForMinLenght() {
+
+    public  void verificationStatusCode201(){
+
         response.then()
                 .log().all()
                 .assertThat().statusCode(201);
 
-
     }
+
 }
+
+
